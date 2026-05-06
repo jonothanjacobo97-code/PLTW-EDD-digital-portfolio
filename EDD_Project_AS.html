@@ -6,7 +6,6 @@
   <title>PLTW EDD Digital Portfolio</title>
 
   <style>
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -205,13 +204,62 @@
       font-style: italic;
     }
 
+    .carousel {
+      max-width: 900px;
+      margin: 25px auto 0 auto;
+      text-align: center;
+    }
+
+    .carousel img {
+      width: 100%;
+      max-height: 650px;
+      object-fit: contain;
+      border-radius: 18px;
+      border: 1px solid rgba(180,100,255,0.5);
+      box-shadow: 0 0 25px rgba(180,100,255,0.4);
+      background: white;
+    }
+
+    .carousel-controls {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .carousel-controls button {
+      background: rgba(180,100,255,0.18);
+      color: white;
+      border: 1px solid rgba(180,100,255,0.5);
+      padding: 12px 22px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.25s;
+    }
+
+    .carousel-controls button:hover {
+      background: rgba(180,100,255,0.35);
+      box-shadow: 0 0 15px rgba(180,100,255,0.7);
+    }
+
+    .slide-label {
+      color: #d6b3ff;
+      font-size: 16px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 1000px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <div class="sidebar">
-
     <h2>PLTW EDD</h2>
 
     <button onclick="showPage('home')">Home</button>
@@ -224,7 +272,6 @@
     <button onclick="showPage('element-g')">Element G</button>
     <button onclick="showPage('element-h')">Element H</button>
     <button onclick="showPage('element-i')">Element I</button>
-
   </div>
 
   <div class="main-content">
@@ -232,7 +279,6 @@
     <div id="home" class="page active">
 
       <div class="hero-box">
-
         <h1>PLTW EDD Digital Portfolio</h1>
 
         <p class="assignment-name">
@@ -242,17 +288,14 @@
         <p class="team-name">
           The Countertop Conundrum
         </p>
-
       </div>
 
       <div class="card">
-
         <h2>Meet the Team</h2>
 
         <div class="team-grid">
 
           <div class="team-card">
-
             <div class="photo-placeholder">
               Picture Placeholder
             </div>
@@ -262,11 +305,9 @@
             <p class="email">
               Email: asarsam@students.monroe.k12.nj.us
             </p>
-
           </div>
 
           <div class="team-card">
-
             <div class="photo-placeholder">
               Picture Placeholder
             </div>
@@ -276,11 +317,9 @@
             <p class="email">
               Email: gkrishna@students.monroe.k12.nj.us
             </p>
-
           </div>
 
           <div class="team-card">
-
             <div class="photo-placeholder">
               Picture Placeholder
             </div>
@@ -290,11 +329,9 @@
             <p class="email">
               Email: jpatten@students.monroe.k12.nj.us
             </p>
-
           </div>
 
         </div>
-
       </div>
 
     </div>
@@ -304,7 +341,6 @@
       <h2>Element A - Problem Identification and Justification</h2>
 
       <div class="card">
-
         <h3>Problem Statement</h3>
 
         <p>
@@ -322,17 +358,29 @@
           cleanliness, health, and time consumption could all be addressed through
           a solution focused on improving countertop sanitation and maintenance.
         </p>
-
       </div>
 
       <div class="card">
-        <h3>Team Norms / Responsibilities / Collaboration Placemat</h3>
-        <p class="placeholder">Add content here.</p>
-      </div>
+        <h3>Project Brochure</h3>
 
-      <div class="card">
-        <h3>2.5 Becoming an Expert (taken from the old syllabus)</h3>
-        <p class="placeholder">Add content here.</p>
+        <p>
+          This brochure summarizes the countertop cleaning problem, supporting
+          statistics, possible supporting companies, team contact information,
+          and the proposed solution concept.
+        </p>
+
+        <div class="carousel">
+          <img id="brochureImage" src="brochure-page-1.png" alt="Project Brochure Page 1">
+
+          <div class="slide-label" id="slideLabel">
+            Slide 1 of 2
+          </div>
+
+          <div class="carousel-controls">
+            <button onclick="previousSlide()">Previous</button>
+            <button onclick="nextSlide()">Next</button>
+          </div>
+        </div>
       </div>
 
       <div class="card">
@@ -392,9 +440,7 @@
   </div>
 
   <script>
-
     function showPage(pageId) {
-
       var pages = document.querySelectorAll(".page");
 
       for (var i = 0; i < pages.length; i++) {
@@ -402,9 +448,43 @@
       }
 
       document.getElementById(pageId).classList.add("active");
-
     }
 
+    var brochureSlides = [
+      "brochure-page-1.png",
+      "brochure-page-2.png"
+    ];
+
+    var currentSlide = 0;
+
+    function showSlide() {
+      var image = document.getElementById("brochureImage");
+      var label = document.getElementById("slideLabel");
+
+      image.src = brochureSlides[currentSlide];
+      image.alt = "Project Brochure Page " + (currentSlide + 1);
+      label.textContent = "Slide " + (currentSlide + 1) + " of " + brochureSlides.length;
+    }
+
+    function nextSlide() {
+      currentSlide = currentSlide + 1;
+
+      if (currentSlide >= brochureSlides.length) {
+        currentSlide = 0;
+      }
+
+      showSlide();
+    }
+
+    function previousSlide() {
+      currentSlide = currentSlide - 1;
+
+      if (currentSlide < 0) {
+        currentSlide = brochureSlides.length - 1;
+      }
+
+      showSlide();
+    }
   </script>
 
 </body>
