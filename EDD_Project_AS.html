@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Unlock</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 15px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      background: white;
+      color: #1e3c72;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #eeeeee;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      display: none;
+    }
+
+    #error {
+      margin-top: 15px;
+      color: #ffd1d1;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>Enter the Code</h1>
+    <p>Type the correct code to unlock the message.</p>
+
+    <input type="password" id="codeInput" placeholder="Enter code">
+    <br>
+
+    <button onclick="checkCode()">Submit</button>
+
+    <div id="message">Congratulations!</div>
+    <div id="error">Wrong code. Try again.</div>
+  </div>
+
+  <script>
+    function checkCode() {
+      var code = document.getElementById("codeInput").value;
+      var message = document.getElementById("message");
+      var error = document.getElementById("error");
+
+      if (code === "6769") {
+        message.style.display = "block";
+        error.style.display = "none";
+      } else {
+        message.style.display = "none";
+        error.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
