@@ -6,7 +6,6 @@
   <title>PLTW EDD Digital Portfolio</title>
 
   <style>
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -205,6 +204,63 @@
       font-style: italic;
     }
 
+    .brochure-carousel {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      height: 720px;
+      margin: 25px auto 0 auto;
+      border: 1px solid rgba(180,100,255,0.5);
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(180,100,255,0.4);
+      background: #222;
+      overflow: hidden;
+    }
+
+    .brochure-carousel iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: white;
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(20, 10, 35, 0.85);
+      color: white;
+      border: 1px solid rgba(180,100,255,0.7);
+      width: 48px;
+      height: 70px;
+      border-radius: 14px;
+      font-size: 34px;
+      cursor: pointer;
+      box-shadow: 0 0 18px rgba(180,100,255,0.6);
+      transition: 0.25s;
+      z-index: 10;
+    }
+
+    .carousel-arrow:hover {
+      background: rgba(180,100,255,0.35);
+      box-shadow: 0 0 25px rgba(220,180,255,0.9);
+    }
+
+    .left-arrow {
+      left: 15px;
+    }
+
+    .right-arrow {
+      right: 15px;
+    }
+
+    .slide-label {
+      text-align: center;
+      margin-top: 15px;
+      color: #d6b3ff;
+      font-size: 18px;
+    }
+
   </style>
 </head>
 
@@ -252,7 +308,6 @@
         <div class="team-grid">
 
           <div class="team-card">
-
             <div class="photo-placeholder">
               Picture Placeholder
             </div>
@@ -262,11 +317,9 @@
             <p class="email">
               Email: asarsam@students.monroe.k12.nj.us
             </p>
-
           </div>
 
           <div class="team-card">
-
             <div class="photo-placeholder">
               Picture Placeholder
             </div>
@@ -276,11 +329,9 @@
             <p class="email">
               Email: gkrishna@students.monroe.k12.nj.us
             </p>
-
           </div>
 
           <div class="team-card">
-
             <div class="photo-placeholder">
               Picture Placeholder
             </div>
@@ -290,7 +341,6 @@
             <p class="email">
               Email: jpatten@students.monroe.k12.nj.us
             </p>
-
           </div>
 
         </div>
@@ -329,46 +379,22 @@
 
         <h3>Project Brochure</h3>
 
-        <p>
-          This brochure summarizes the countertop cleaning problem, supporting
-          statistics, possible supporting companies, team contact information,
-          and the proposed solution concept.
-        </p>
+        <div class="brochure-carousel">
 
-        <div style="margin-top: 30px;">
+          <button class="carousel-arrow left-arrow" onclick="previousBrochureSlide()">
+            &#8249;
+          </button>
 
-          <h3 style="font-size:22px;">Brochure Page 1</h3>
+          <iframe id="brochureFrame" src="./brochure-page-1.pdf"></iframe>
 
-          <iframe
-            src="./brochure-page-1.pdf"
-            width="100%"
-            height="700px"
-            style="
-              border: 1px solid rgba(180,100,255,0.5);
-              border-radius: 18px;
-              box-shadow: 0 0 25px rgba(180,100,255,0.4);
-              background:white;
-            ">
-          </iframe>
+          <button class="carousel-arrow right-arrow" onclick="nextBrochureSlide()">
+            &#8250;
+          </button>
 
         </div>
 
-        <div style="margin-top: 50px;">
-
-          <h3 style="font-size:22px;">Brochure Page 2</h3>
-
-          <iframe
-            src="./brochure-page-2.pdf"
-            width="100%"
-            height="700px"
-            style="
-              border: 1px solid rgba(180,100,255,0.5);
-              border-radius: 18px;
-              box-shadow: 0 0 25px rgba(180,100,255,0.4);
-              background:white;
-            ">
-          </iframe>
-
+        <div class="slide-label" id="brochureLabel">
+          Page 1 of 2
         </div>
 
       </div>
@@ -430,9 +456,7 @@
   </div>
 
   <script>
-
     function showPage(pageId) {
-
       var pages = document.querySelectorAll(".page");
 
       for (var i = 0; i < pages.length; i++) {
@@ -440,9 +464,40 @@
       }
 
       document.getElementById(pageId).classList.add("active");
-
     }
 
+    var brochureSlides = [
+      "./brochure-page-1.pdf",
+      "./brochure-page-2.pdf"
+    ];
+
+    var currentBrochureSlide = 0;
+
+    function updateBrochureSlide() {
+      document.getElementById("brochureFrame").src = brochureSlides[currentBrochureSlide];
+      document.getElementById("brochureLabel").textContent =
+        "Page " + (currentBrochureSlide + 1) + " of " + brochureSlides.length;
+    }
+
+    function nextBrochureSlide() {
+      currentBrochureSlide++;
+
+      if (currentBrochureSlide >= brochureSlides.length) {
+        currentBrochureSlide = 0;
+      }
+
+      updateBrochureSlide();
+    }
+
+    function previousBrochureSlide() {
+      currentBrochureSlide--;
+
+      if (currentBrochureSlide < 0) {
+        currentBrochureSlide = brochureSlides.length - 1;
+      }
+
+      updateBrochureSlide();
+    }
   </script>
 
 </body>
