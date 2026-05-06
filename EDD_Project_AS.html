@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PLTW EDD Digital Portfolio</title>
 
   <style>
+
     html {
       scroll-behavior: smooth;
     }
@@ -21,44 +22,67 @@
       position: fixed;
       left: 0;
       top: 0;
-      width: 230px;
+      width: 310px;
       height: 100vh;
-      background: rgba(8, 8, 22, 0.97);
+      overflow-y: auto;
+      background: rgba(8, 8, 22, 0.98);
       border-right: 1px solid rgba(180, 100, 255, 0.6);
       box-shadow: 0 0 25px rgba(160, 80, 255, 0.35);
-      padding: 25px 15px;
+      padding: 20px;
       box-sizing: border-box;
       z-index: 1000;
     }
 
     .sidebar h2 {
-      color: #d6b3ff;
-      font-size: 22px;
       text-align: center;
+      color: #d6b3ff;
+      text-shadow: 0 0 15px #9b4dff;
       margin-bottom: 25px;
-      text-shadow: 0 0 12px #9b4dff;
     }
 
     .sidebar a {
       display: block;
       color: #ddddef;
       text-decoration: none;
-      padding: 11px 15px;
-      margin: 7px 0;
-      border: 1px solid rgba(180, 100, 255, 0.25);
+      padding: 10px 14px;
+      margin: 6px 0;
       border-radius: 10px;
       transition: 0.25s;
+      font-size: 14px;
     }
 
     .sidebar a:hover {
-      color: white;
       background: rgba(180, 100, 255, 0.18);
-      box-shadow: 0 0 14px rgba(180, 100, 255, 0.65);
+      box-shadow: 0 0 12px rgba(180, 100, 255, 0.7);
       transform: translateX(4px);
     }
 
+    details {
+      margin: 10px 0;
+    }
+
+    summary {
+      color: #ffffff;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid rgba(180,100,255,0.3);
+      transition: 0.25s;
+      font-size: 15px;
+    }
+
+    summary:hover {
+      background: rgba(180,100,255,0.18);
+      box-shadow: 0 0 14px rgba(180,100,255,0.6);
+    }
+
+    details a {
+      margin-left: 10px;
+      color: #cfcfe8;
+    }
+
     .main-content {
-      margin-left: 230px;
+      margin-left: 310px;
     }
 
     header {
@@ -67,50 +91,56 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+
       background:
         radial-gradient(circle at center, rgba(160, 80, 255, 0.25), transparent 35%),
         linear-gradient(135deg, #070711, #111122);
+
       padding: 30px;
     }
 
     .hero-box {
-      border: 2px solid rgba(180, 100, 255, 0.8);
-      box-shadow: 0 0 25px rgba(180, 100, 255, 0.7), inset 0 0 20px rgba(180, 100, 255, 0.2);
+      border: 2px solid rgba(180,100,255,0.7);
+
+      box-shadow:
+        0 0 30px rgba(180,100,255,0.7),
+        inset 0 0 20px rgba(180,100,255,0.2);
+
       border-radius: 25px;
       padding: 50px;
-      max-width: 800px;
+      max-width: 850px;
     }
 
     h1 {
-      font-size: 50px;
-      margin-bottom: 10px;
+      font-size: 54px;
       color: #d6b3ff;
-      text-shadow: 0 0 15px #9b4dff;
+      text-shadow: 0 0 18px #9b4dff;
+      margin-bottom: 10px;
     }
 
     .subtitle {
-      font-size: 20px;
-      color: #cfcfe8;
+      font-size: 22px;
+      color: #d9d9f5;
     }
 
     section {
-      min-height: 80vh;
-      padding: 80px 12%;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 65vh;
+      padding: 80px 10%;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(180, 100, 255, 0.55);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(180,100,255,0.45);
       border-radius: 20px;
       padding: 35px;
-      box-shadow: 0 0 22px rgba(150, 70, 255, 0.25);
+      box-shadow: 0 0 20px rgba(150,70,255,0.2);
     }
 
     h3 {
       color: #d7b7ff;
       font-size: 34px;
-      text-shadow: 0 0 10px rgba(180, 100, 255, 0.8);
+      text-shadow: 0 0 10px rgba(180,100,255,0.7);
     }
 
     p {
@@ -124,13 +154,6 @@
       font-style: italic;
     }
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #05050c;
-      color: #aaa;
-    }
-
     .top-link {
       display: inline-block;
       margin-top: 20px;
@@ -142,7 +165,15 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 800px) {
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #05050c;
+      color: #aaa;
+    }
+
+    @media (max-width: 900px) {
+
       .sidebar {
         position: relative;
         width: 100%;
@@ -154,24 +185,91 @@
       }
 
       h1 {
-        font-size: 36px;
+        font-size: 38px;
       }
 
-      .hero-box {
-        padding: 30px;
-      }
     }
+
   </style>
 </head>
 
 <body>
 
   <div class="sidebar">
+
     <h2>PLTW EDD</h2>
+
     <a href="#home">Home</a>
-    <a href="#element-a">Element A</a>
-    <a href="#element-b">Element B</a>
-    <a href="#element-c">Element C</a>
+
+    <details>
+      <summary>Element A - Problem Identification and Justification</summary>
+
+      <a href="#problem-statement">
+        Problem Statement (Block 3B)
+      </a>
+
+      <a href="#team-norms">
+        Team Norms / Responsibilities / Collaboration Placemat
+      </a>
+
+      <a href="#becoming-expert">
+        2.5 Becoming an Expert (taken from the old syllabus)
+      </a>
+
+      <a href="#academic-research">
+        A.5 Academic Research
+      </a>
+
+      <a href="#marketplace-research">
+        A.6 Marketplace Research
+      </a>
+
+      <a href="#survey-examples">
+        Survey Examples - From previous year's EDD classes & my summer EDD project
+      </a>
+
+      <a href="#conducting-market-research">
+        Conducting Market Research Project
+      </a>
+
+    </details>
+
+    <details>
+
+      <summary>
+        Element B Documentation and Analysis of Prior Solution Attempts
+      </summary>
+
+      <a href="#b1-previous-solution-attempts">
+        B1 Previous Solution Attempts
+      </a>
+
+    </details>
+
+    <details>
+
+      <summary>
+        Element C: Presentation and Justification of Solution Requirements
+      </summary>
+
+      <a href="#design-specifications">
+        C.1 Design Specifications
+      </a>
+
+      <a href="#project-proposal">
+        C.2 Project Proposal
+      </a>
+
+      <a href="#edd-presentations">
+        EDD presentations Jan 06, 2025
+      </a>
+
+      <a href="#field-trip-form">
+        Mid Year Presentation - Field Trip Permission Form
+      </a>
+
+    </details>
+
     <a href="#element-d">Element D</a>
     <a href="#element-e">Element E</a>
     <a href="#element-f">Element F</a>
@@ -182,122 +280,195 @@
     <a href="#element-k">Element K</a>
     <a href="#element-l">Element L</a>
     <a href="#element-m">Element M</a>
+
   </div>
 
   <div class="main-content">
 
     <header id="home">
+
       <div class="hero-box">
+
         <h1>PLTW EDD Digital Portfolio</h1>
-        <p class="subtitle">Engineering Design and Development Portfolio</p>
-        <p>
-          Welcome to my PLTW EDD portfolio. Use the sidebar to view
-          each portfolio element from A through M.
+
+        <p class="subtitle">
+          Engineering Design and Development Portfolio
         </p>
+
+        <p>
+          Welcome to my PLTW EDD digital portfolio.
+          Use the navigation sidebar to explore all portfolio elements.
+        </p>
+
       </div>
+
     </header>
 
-    <section id="element-a">
+    <section id="problem-statement">
       <div class="card">
-        <h3>Element A</h3>
-        <p class="placeholder">Add your Element A content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
+        <h3>Problem Statement (Block 3B)</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
       </div>
     </section>
 
-    <section id="element-b">
+    <section id="team-norms">
       <div class="card">
-        <h3>Element B</h3>
-        <p class="placeholder">Add your Element B content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
+        <h3>Team Norms / Responsibilities / Collaboration Placemat</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
       </div>
     </section>
 
-    <section id="element-c">
+    <section id="becoming-expert">
       <div class="card">
-        <h3>Element C</h3>
-        <p class="placeholder">Add your Element C content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
+        <h3>2.5 Becoming an Expert</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
+      </div>
+    </section>
+
+    <section id="academic-research">
+      <div class="card">
+        <h3>A.5 Academic Research</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
+      </div>
+    </section>
+
+    <section id="marketplace-research">
+      <div class="card">
+        <h3>A.6 Marketplace Research</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
+      </div>
+    </section>
+
+    <section id="survey-examples">
+      <div class="card">
+        <h3>Survey Examples</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
+      </div>
+    </section>
+
+    <section id="conducting-market-research">
+      <div class="card">
+        <h3>Conducting Market Research Project</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
+      </div>
+    </section>
+
+    <section id="b1-previous-solution-attempts">
+      <div class="card">
+        <h3>B1 Previous Solution Attempts</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
+      </div>
+    </section>
+
+    <section id="design-specifications">
+      <div class="card">
+        <h3>C.1 Design Specifications</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
+      </div>
+    </section>
+
+    <section id="project-proposal">
+      <div class="card">
+        <h3>C.2 Project Proposal</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
+      </div>
+    </section>
+
+    <section id="edd-presentations">
+      <div class="card">
+        <h3>EDD presentations Jan 06, 2025</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
+      </div>
+    </section>
+
+    <section id="field-trip-form">
+      <div class="card">
+        <h3>Mid Year Presentation - Field Trip Permission Form</h3>
+        <p class="placeholder">
+          Add content or PDFs here.
+        </p>
       </div>
     </section>
 
     <section id="element-d">
       <div class="card">
         <h3>Element D</h3>
-        <p class="placeholder">Add your Element D content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
       </div>
     </section>
 
     <section id="element-e">
       <div class="card">
         <h3>Element E</h3>
-        <p class="placeholder">Add your Element E content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
       </div>
     </section>
 
     <section id="element-f">
       <div class="card">
         <h3>Element F</h3>
-        <p class="placeholder">Add your Element F content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
       </div>
     </section>
 
     <section id="element-g">
       <div class="card">
         <h3>Element G</h3>
-        <p class="placeholder">Add your Element G content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
       </div>
     </section>
 
     <section id="element-h">
       <div class="card">
         <h3>Element H</h3>
-        <p class="placeholder">Add your Element H content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
       </div>
     </section>
 
     <section id="element-i">
       <div class="card">
         <h3>Element I</h3>
-        <p class="placeholder">Add your Element I content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
       </div>
     </section>
 
     <section id="element-j">
       <div class="card">
         <h3>Element J</h3>
-        <p class="placeholder">Add your Element J content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
       </div>
     </section>
 
     <section id="element-k">
       <div class="card">
         <h3>Element K</h3>
-        <p class="placeholder">Add your Element K content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
       </div>
     </section>
 
     <section id="element-l">
       <div class="card">
         <h3>Element L</h3>
-        <p class="placeholder">Add your Element L content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
       </div>
     </section>
 
     <section id="element-m">
       <div class="card">
         <h3>Element M</h3>
-        <p class="placeholder">Add your Element M content here.</p>
-        <a class="top-link" href="#home">Back to top</a>
       </div>
     </section>
 
