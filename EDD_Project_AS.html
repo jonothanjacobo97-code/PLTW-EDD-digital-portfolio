@@ -1,103 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Code Unlock</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PLTW EDD Digital Portfolio</title>
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      background: #070711;
       color: white;
-      height: 100vh;
+    }
+
+    header {
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(160, 80, 255, 0.25), transparent 35%),
+        linear-gradient(135deg, #070711, #111122);
+      padding: 30px;
     }
 
-    .box {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 40px;
-      border-radius: 15px;
-      width: 350px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    .hero-box {
+      border: 2px solid rgba(180, 100, 255, 0.8);
+      box-shadow: 0 0 25px rgba(180, 100, 255, 0.7), inset 0 0 20px rgba(180, 100, 255, 0.2);
+      border-radius: 25px;
+      padding: 50px;
+      max-width: 800px;
     }
 
     h1 {
+      font-size: 50px;
       margin-bottom: 10px;
+      color: #d6b3ff;
+      text-shadow: 0 0 15px #9b4dff;
     }
 
-    input {
-      width: 90%;
-      padding: 12px;
-      margin: 15px 0;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
+    .subtitle {
+      font-size: 20px;
+      color: #cfcfe8;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(10, 10, 25, 0.95);
+      padding: 15px;
       text-align: center;
+      border-bottom: 1px solid rgba(180, 100, 255, 0.5);
+      z-index: 100;
     }
 
-    button {
-      padding: 12px 25px;
-      border: none;
-      border-radius: 8px;
-      background: white;
-      color: #1e3c72;
+    select {
+      background: #111122;
+      color: white;
+      border: 1px solid #b56cff;
+      padding: 12px 18px;
+      border-radius: 10px;
       font-size: 16px;
+      box-shadow: 0 0 12px rgba(180, 100, 255, 0.5);
       cursor: pointer;
-      font-weight: bold;
     }
 
-    button:hover {
-      background: #eeeeee;
+    section {
+      min-height: 80vh;
+      padding: 80px 12%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    #message {
+    .card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(180, 100, 255, 0.55);
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 0 22px rgba(150, 70, 255, 0.25);
+    }
+
+    h2 {
+      color: #d7b7ff;
+      font-size: 34px;
+      text-shadow: 0 0 10px rgba(180, 100, 255, 0.8);
+    }
+
+    p {
+      line-height: 1.7;
+      color: #ddddef;
+      font-size: 18px;
+    }
+
+    .placeholder {
+      color: #b9a6d9;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #05050c;
+      color: #aaa;
+    }
+
+    .top-link {
+      display: inline-block;
       margin-top: 20px;
-      font-size: 24px;
-      font-weight: bold;
-      display: none;
+      color: #d6b3ff;
+      text-decoration: none;
     }
 
-    #error {
-      margin-top: 15px;
-      color: #ffd1d1;
-      display: none;
+    .top-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
-  <div class="box">
-    <h1>Enter the Code</h1>
-    <p>Type the correct code to unlock the message.</p>
 
-    <input type="password" id="codeInput" placeholder="Enter code">
-    <br>
+  <header id="home">
+    <div class="hero-box">
+      <h1>PLTW EDD Digital Portfolio</h1>
+      <p class="subtitle">Engineering Design and Development Portfolio</p>
+      <p>
+        Welcome to my PLTW EDD portfolio. Use the dropdown menu below to view
+        each portfolio element from A through M.
+      </p>
+    </div>
+  </header>
 
-    <button onclick="checkCode()">Submit</button>
+  <nav>
+    <select onchange="location = this.value;">
+      <option value="#home">Go to portfolio section</option>
+      <option value="#element-a">Element A</option>
+      <option value="#element-b">Element B</option>
+      <option value="#element-c">Element C</option>
+      <option value="#element-d">Element D</option>
+      <option value="#element-e">Element E</option>
+      <option value="#element-f">Element F</option>
+      <option value="#element-g">Element G</option>
+      <option value="#element-h">Element H</option>
+      <option value="#element-i">Element I</option>
+      <option value="#element-j">Element J</option>
+      <option value="#element-k">Element K</option>
+      <option value="#element-l">Element L</option>
+      <option value="#element-m">Element M</option>
+    </select>
+  </nav>
 
-    <div id="message">Congratulations!</div>
-    <div id="error">Wrong code. Try again.</div>
-  </div>
+  <section id="element-a">
+    <div class="card">
+      <h2>Element A</h2>
+      <p class="placeholder">Add your Element A content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
 
-  <script>
-    function checkCode() {
-      var code = document.getElementById("codeInput").value;
-      var message = document.getElementById("message");
-      var error = document.getElementById("error");
+  <section id="element-b">
+    <div class="card">
+      <h2>Element B</h2>
+      <p class="placeholder">Add your Element B content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
 
-      if (code === "6769") {
-        message.style.display = "block";
-        error.style.display = "none";
-      } else {
-        message.style.display = "none";
-        error.style.display = "block";
-      }
-    }
-  </script>
+  <section id="element-c">
+    <div class="card">
+      <h2>Element C</h2>
+      <p class="placeholder">Add your Element C content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
+
+  <section id="element-d">
+    <div class="card">
+      <h2>Element D</h2>
+      <p class="placeholder">Add your Element D content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
+
+  <section id="element-e">
+    <div class="card">
+      <h2>Element E</h2>
+      <p class="placeholder">Add your Element E content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
+
+  <section id="element-f">
+    <div class="card">
+      <h2>Element F</h2>
+      <p class="placeholder">Add your Element F content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
+
+  <section id="element-g">
+    <div class="card">
+      <h2>Element G</h2>
+      <p class="placeholder">Add your Element G content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
+
+  <section id="element-h">
+    <div class="card">
+      <h2>Element H</h2>
+      <p class="placeholder">Add your Element H content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
+
+  <section id="element-i">
+    <div class="card">
+      <h2>Element I</h2>
+      <p class="placeholder">Add your Element I content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
+
+  <section id="element-j">
+    <div class="card">
+      <h2>Element J</h2>
+      <p class="placeholder">Add your Element J content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
+
+  <section id="element-k">
+    <div class="card">
+      <h2>Element K</h2>
+      <p class="placeholder">Add your Element K content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
+
+  <section id="element-l">
+    <div class="card">
+      <h2>Element L</h2>
+      <p class="placeholder">Add your Element L content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
+
+  <section id="element-m">
+    <div class="card">
+      <h2>Element M</h2>
+      <p class="placeholder">Add your Element M content here.</p>
+      <a class="top-link" href="#home">Back to top</a>
+    </div>
+  </section>
+
+  <footer>
+    PLTW EDD Digital Portfolio
+  </footer>
+
 </body>
 </html>
