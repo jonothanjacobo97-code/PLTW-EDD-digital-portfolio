@@ -6,16 +6,12 @@
   <title>PLTW EDD Digital Portfolio</title>
 
   <style>
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #070711;
       color: white;
+      overflow: hidden;
     }
 
     .sidebar {
@@ -40,18 +36,22 @@
       margin-bottom: 25px;
     }
 
-    .sidebar a {
+    .sidebar button {
       display: block;
+      width: 100%;
+      background: transparent;
       color: #ddddef;
-      text-decoration: none;
-      padding: 10px 14px;
-      margin: 5px 0;
+      border: 1px solid rgba(180,100,255,0.3);
+      padding: 12px;
+      margin: 8px 0;
       border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 15px;
       transition: 0.25s;
-      font-size: 14px;
     }
 
-    .sidebar a:hover {
+    .sidebar button:hover {
       background: rgba(180, 100, 255, 0.18);
       box-shadow: 0 0 12px rgba(180, 100, 255, 0.7);
       transform: translateX(4px);
@@ -76,39 +76,44 @@
       box-shadow: 0 0 14px rgba(180,100,255,0.6);
     }
 
-    details a {
+    details button {
       margin-left: 12px;
+      font-size: 13px;
       color: #cfcfe8;
+      border: none;
     }
 
     .main-content {
       margin-left: 320px;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    header {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-
+    .page {
+      display: none;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 70px 10%;
+      box-sizing: border-box;
       background:
-        radial-gradient(circle at center, rgba(160, 80, 255, 0.25), transparent 35%),
+        radial-gradient(circle at center, rgba(160, 80, 255, 0.18), transparent 35%),
         linear-gradient(135deg, #070711, #111122);
+    }
 
-      padding: 30px;
+    .page.active {
+      display: block;
     }
 
     .hero-box {
       border: 2px solid rgba(180,100,255,0.7);
-
       box-shadow:
         0 0 30px rgba(180,100,255,0.7),
         inset 0 0 20px rgba(180,100,255,0.2);
-
       border-radius: 25px;
       padding: 50px;
       max-width: 850px;
+      margin: 80px auto;
+      text-align: center;
     }
 
     h1 {
@@ -118,28 +123,9 @@
       margin-bottom: 10px;
     }
 
-    .subtitle {
-      font-size: 22px;
-      color: #d9d9f5;
-    }
-
-    section {
-      min-height: 60vh;
-      padding: 80px 10%;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(180,100,255,0.45);
-      border-radius: 20px;
-      padding: 35px;
-      box-shadow: 0 0 20px rgba(150,70,255,0.2);
-    }
-
     h3 {
       color: #d7b7ff;
-      font-size: 34px;
+      font-size: 32px;
       text-shadow: 0 0 10px rgba(180,100,255,0.7);
     }
 
@@ -149,19 +135,29 @@
       font-size: 18px;
     }
 
+    .subtitle {
+      font-size: 22px;
+      color: #d9d9f5;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(180,100,255,0.45);
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 35px;
+      box-shadow: 0 0 20px rgba(150,70,255,0.2);
+    }
+
     .placeholder {
       color: #b9a6d9;
       font-style: italic;
     }
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #05050c;
-      color: #aaa;
-    }
-
     @media (max-width: 900px) {
+      body {
+        overflow: auto;
+      }
 
       .sidebar {
         position: relative;
@@ -171,236 +167,204 @@
 
       .main-content {
         margin-left: 0;
+        height: auto;
+      }
+
+      .page {
+        height: auto;
+        min-height: 100vh;
       }
 
       h1 {
         font-size: 38px;
       }
-
     }
-
   </style>
 </head>
 
 <body>
 
   <div class="sidebar">
-
     <h2>PLTW EDD</h2>
 
-    <a href="#home">Home</a>
+    <button onclick="showPage('home')">Home</button>
 
     <details>
-
-      <summary>
-        Element A - Problem Identification and Justification
-      </summary>
-
-      <a href="#problem-statement">Problem Statement (Block 3B)</a>
-      <a href="#team-norms">Team Norms / Responsibilities / Collaboration Placemat</a>
-      <a href="#becoming-expert">2.5 Becoming an Expert</a>
-      <a href="#academic-research">A.5 Academic Research</a>
-      <a href="#marketplace-research">A.6 Marketplace Research</a>
-      <a href="#survey-examples">Survey Examples</a>
-      <a href="#conducting-market-research">Conducting Market Research Project</a>
-
+      <summary>Element A - Problem Identification and Justification</summary>
+      <button onclick="showPage('element-a')">Open Element A Page</button>
+      <button onclick="showPage('problem-statement')">Problem Statement (Block 3B)</button>
+      <button onclick="showPage('team-norms')">Team Norms / Responsibilities / Collaboration Placemat</button>
+      <button onclick="showPage('becoming-expert')">2.5 Becoming an Expert</button>
+      <button onclick="showPage('academic-research')">A.5 Academic Research</button>
+      <button onclick="showPage('marketplace-research')">A.6 Marketplace Research</button>
+      <button onclick="showPage('survey-examples')">Survey Examples</button>
+      <button onclick="showPage('conducting-market-research')">Conducting Market Research Project</button>
     </details>
 
     <details>
-
-      <summary>
-        Element B Documentation and Analysis of Prior Solution Attempts
-      </summary>
-
-      <a href="#b1-previous-solution-attempts">B1 Previous Solution Attempts</a>
-
+      <summary>Element B Documentation and Analysis of Prior Solution Attempts</summary>
+      <button onclick="showPage('element-b')">Open Element B Page</button>
+      <button onclick="showPage('b1-previous-solution-attempts')">B1 Previous Solution Attempts</button>
     </details>
 
     <details>
-
-      <summary>
-        Element C: Presentation and Justification of Solution Requirements
-      </summary>
-
-      <a href="#design-specifications">C.1 Design Specifications</a>
-      <a href="#project-proposal">C.2 Project Proposal</a>
-      <a href="#edd-presentations">EDD presentations Jan 06, 2025</a>
-      <a href="#field-trip-form">Mid Year Presentation - Field Trip Permission Form</a>
-
+      <summary>Element C: Presentation and Justification of Solution Requirements</summary>
+      <button onclick="showPage('element-c')">Open Element C Page</button>
+      <button onclick="showPage('design-specifications')">C.1 Design Specifications</button>
+      <button onclick="showPage('project-proposal')">C.2 Project Proposal</button>
+      <button onclick="showPage('edd-presentations')">EDD presentations Jan 06, 2025</button>
+      <button onclick="showPage('field-trip-form')">Mid Year Presentation - Field Trip Permission Form</button>
     </details>
 
     <details>
-
-      <summary>
-        Element D Design Concepts Generation, Analysis, and Selection
-      </summary>
-
-      <a href="#brainstorming-solutions">1.0 Brainstorming Possible Solutions</a>
-      <a href="#concept-development">D.1 Concept Development</a>
-      <a href="#concept-analysis">D.2 Concept Analysis</a>
-      <a href="#solution-selection">D.3 Solution Selection</a>
-      <a href="#design-documentation">D.4 Design Documentation</a>
-      <a href="#peer-review">Classwork - Jan 7th Peer Review</a>
-
+      <summary>Element D Design Concepts Generation, Analysis, and Selection</summary>
+      <button onclick="showPage('element-d')">Open Element D Page</button>
+      <button onclick="showPage('brainstorming-solutions')">1.0 Brainstorming Possible Solutions</button>
+      <button onclick="showPage('concept-development')">D.1 Concept Development</button>
+      <button onclick="showPage('concept-analysis')">D.2 Concept Analysis</button>
+      <button onclick="showPage('solution-selection')">D.3 Solution Selection</button>
+      <button onclick="showPage('design-documentation')">D.4 Design Documentation</button>
+      <button onclick="showPage('peer-review')">Classwork - Jan 7th Peer Review</button>
     </details>
 
     <details>
-
-      <summary>
-        Element E Application of STEM Principles and Practices
-      </summary>
-
-      <a href="#stem-principles">Element E – Application of STEM Principles</a>
-      <a href="#stem-career-investigation">E.1 STEM Career Investigation</a>
-
+      <summary>Element E Application of STEM Principles and Practices</summary>
+      <button onclick="showPage('element-e')">Open Element E Page</button>
+      <button onclick="showPage('stem-principles')">Element E – Application of STEM Principles</button>
+      <button onclick="showPage('stem-career-investigation')">E.1 STEM Career Investigation</button>
     </details>
 
     <details>
-
-      <summary>
-        Element F – Consideration of Design Viability
-      </summary>
-
-      <a href="#design-viability">F.1 Design Viability</a>
-      <a href="#preliminary-design-review">F.2 Preliminary Design Review</a>
-
+      <summary>Element F – Consideration of Design Viability</summary>
+      <button onclick="showPage('element-f')">Open Element F Page</button>
+      <button onclick="showPage('design-viability')">F.1 Design Viability</button>
+      <button onclick="showPage('preliminary-design-review')">F.2 Preliminary Design Review</button>
     </details>
 
     <details>
-
-      <summary>
-        Element G Construction of a Testable Prototype
-      </summary>
-
-      <a href="#prototype-materials">G.1 Prototype Materials Planning</a>
-      <a href="#stores-to-buy">STORES TO BUY WITH PURCHASE ORDERS</a>
-      <a href="#material-request">2025-26 EDD Material Request</a>
-      <a href="#incremental-testing">G.2 Incremental Testing Planning</a>
-      <a href="#build-prototype">G.3 Build the Prototype</a>
-      <a href="#electronic-portfolio">Electronic Portfolio - EDD Project</a>
-      <a href="#technical-paper">Technical Paper - EDD Project</a>
-      <a href="#microcontrollers-pdf">Introduction to Microcontrollers</a>
-      <a href="#microprocessor-ppt">Microcontroller PPT</a>
-      <a href="#diode-build">DIODE Hardware Simulation</a>
-
+      <summary>Element G Construction of a Testable Prototype</summary>
+      <button onclick="showPage('element-g')">Open Element G Page</button>
+      <button onclick="showPage('prototype-materials')">G.1 Prototype Materials Planning</button>
+      <button onclick="showPage('stores-to-buy')">STORES TO BUY WITH PURCHASE ORDERS</button>
+      <button onclick="showPage('material-request')">2025-26 EDD Material Request</button>
+      <button onclick="showPage('incremental-testing')">G.2 Incremental Testing Planning</button>
+      <button onclick="showPage('build-prototype')">G.3 Build the Prototype</button>
+      <button onclick="showPage('electronic-portfolio')">Electronic Portfolio - EDD Project</button>
+      <button onclick="showPage('technical-paper')">Technical Paper - EDD Project</button>
+      <button onclick="showPage('microcontrollers-pdf')">Introduction to Microcontrollers</button>
+      <button onclick="showPage('microprocessor-ppt')">Microcontroller PPT</button>
+      <button onclick="showPage('diode-build')">DIODE Hardware Simulation</button>
     </details>
 
     <details>
-
-      <summary>
-        Element H Prototype Testing and Data Collection Plan
-      </summary>
-
-      <a href="#test-criteria">1.0 Test Criteria & 1.2 Test Procedure</a>
-
+      <summary>Element H Prototype Testing and Data Collection Plan</summary>
+      <button onclick="showPage('element-h')">Open Element H Page</button>
+      <button onclick="showPage('test-criteria')">1.0 Test Criteria & 1.2 Test Procedure</button>
     </details>
 
     <details>
-
-      <summary>
-        Element I Testing, Data Collection, and Analysis
-      </summary>
-
-      <a href="#evaluate-prototype">I1.0 Test and Evaluate the Prototype</a>
-
+      <summary>Element I Testing, Data Collection, and Analysis</summary>
+      <button onclick="showPage('element-i')">Open Element I Page</button>
+      <button onclick="showPage('evaluate-prototype')">I1.0 Test and Evaluate the Prototype</button>
     </details>
 
+    <button onclick="showPage('element-j')">Element J</button>
+    <button onclick="showPage('element-k')">Element K</button>
+    <button onclick="showPage('element-l')">Element L</button>
+    <button onclick="showPage('element-m')">Element M</button>
   </div>
 
   <div class="main-content">
 
-    <header id="home">
-
+    <div id="home" class="page active">
       <div class="hero-box">
-
         <h1>PLTW EDD Digital Portfolio</h1>
-
-        <p class="subtitle">
-          Engineering Design and Development Portfolio
-        </p>
-
+        <p class="subtitle">Engineering Design and Development Portfolio</p>
         <p>
-          Welcome to my PLTW EDD digital portfolio.
-          Use the navigation sidebar to explore all portfolio elements.
+          Welcome to my PLTW EDD digital portfolio. Use the sidebar to open each
+          element as its own separate page.
         </p>
-
       </div>
+    </div>
 
-    </header>
+    <div id="element-a" class="page">
+      <div class="card">
+        <h3>Element A - Problem Identification and Justification</h3>
+        <p class="placeholder">This is the main Element A page. Add your overview here.</p>
+      </div>
+    </div>
 
-    <section id="problem-statement"><div class="card"><h3>Problem Statement (Block 3B)</h3><p class="placeholder">Add content here.</p></div></section>
+    <div id="problem-statement" class="page"><div class="card"><h3>Problem Statement (Block 3B)</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="team-norms" class="page"><div class="card"><h3>Team Norms / Responsibilities / Collaboration Placemat</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="becoming-expert" class="page"><div class="card"><h3>2.5 Becoming an Expert</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="academic-research" class="page"><div class="card"><h3>A.5 Academic Research</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="marketplace-research" class="page"><div class="card"><h3>A.6 Marketplace Research</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="survey-examples" class="page"><div class="card"><h3>Survey Examples</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="conducting-market-research" class="page"><div class="card"><h3>Conducting Market Research Project</h3><p class="placeholder">Add content here.</p></div></div>
 
-    <section id="team-norms"><div class="card"><h3>Team Norms / Responsibilities / Collaboration Placemat</h3><p class="placeholder">Add content here.</p></div></section>
+    <div id="element-b" class="page"><div class="card"><h3>Element B Documentation and Analysis of Prior Solution Attempts</h3><p class="placeholder">This is the main Element B page.</p></div></div>
+    <div id="b1-previous-solution-attempts" class="page"><div class="card"><h3>B1 Previous Solution Attempts</h3><p class="placeholder">Add content here.</p></div></div>
 
-    <section id="becoming-expert"><div class="card"><h3>2.5 Becoming an Expert</h3><p class="placeholder">Add content here.</p></div></section>
+    <div id="element-c" class="page"><div class="card"><h3>Element C: Presentation and Justification of Solution Requirements</h3><p class="placeholder">This is the main Element C page.</p></div></div>
+    <div id="design-specifications" class="page"><div class="card"><h3>C.1 Design Specifications</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="project-proposal" class="page"><div class="card"><h3>C.2 Project Proposal</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="edd-presentations" class="page"><div class="card"><h3>EDD presentations Jan 06, 2025</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="field-trip-form" class="page"><div class="card"><h3>Mid Year Presentation - Field Trip Permission Form</h3><p class="placeholder">Add content here.</p></div></div>
 
-    <section id="academic-research"><div class="card"><h3>A.5 Academic Research</h3><p class="placeholder">Add content here.</p></div></section>
+    <div id="element-d" class="page"><div class="card"><h3>Element D Design Concepts Generation, Analysis, and Selection</h3><p class="placeholder">This is the main Element D page.</p></div></div>
+    <div id="brainstorming-solutions" class="page"><div class="card"><h3>1.0 Brainstorming Possible Solutions</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="concept-development" class="page"><div class="card"><h3>D.1 Concept Development</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="concept-analysis" class="page"><div class="card"><h3>D.2 Concept Analysis</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="solution-selection" class="page"><div class="card"><h3>D.3 Solution Selection</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="design-documentation" class="page"><div class="card"><h3>D.4 Design Documentation</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="peer-review" class="page"><div class="card"><h3>Classwork - Jan 7th Peer Review</h3><p class="placeholder">Add content here.</p></div></div>
 
-    <section id="marketplace-research"><div class="card"><h3>A.6 Marketplace Research</h3><p class="placeholder">Add content here.</p></div></section>
+    <div id="element-e" class="page"><div class="card"><h3>Element E Application of STEM Principles and Practices</h3><p class="placeholder">This is the main Element E page.</p></div></div>
+    <div id="stem-principles" class="page"><div class="card"><h3>Element E – Application of STEM Principles</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="stem-career-investigation" class="page"><div class="card"><h3>E.1 STEM Career Investigation</h3><p class="placeholder">Add content here.</p></div></div>
 
-    <section id="survey-examples"><div class="card"><h3>Survey Examples</h3><p class="placeholder">Add content here.</p></div></section>
+    <div id="element-f" class="page"><div class="card"><h3>Element F – Consideration of Design Viability</h3><p class="placeholder">This is the main Element F page.</p></div></div>
+    <div id="design-viability" class="page"><div class="card"><h3>F.1 Design Viability</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="preliminary-design-review" class="page"><div class="card"><h3>F.2 Preliminary Design Review</h3><p class="placeholder">Add content here.</p></div></div>
 
-    <section id="conducting-market-research"><div class="card"><h3>Conducting Market Research Project</h3><p class="placeholder">Add content here.</p></div></section>
+    <div id="element-g" class="page"><div class="card"><h3>Element G Construction of a Testable Prototype</h3><p class="placeholder">This is the main Element G page.</p></div></div>
+    <div id="prototype-materials" class="page"><div class="card"><h3>G.1 Prototype Materials Planning</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="stores-to-buy" class="page"><div class="card"><h3>STORES TO BUY WITH PURCHASE ORDERS</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="material-request" class="page"><div class="card"><h3>2025-26 EDD Material Request</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="incremental-testing" class="page"><div class="card"><h3>G.2 Incremental Testing Planning</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="build-prototype" class="page"><div class="card"><h3>G.3 Build the Prototype</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="electronic-portfolio" class="page"><div class="card"><h3>Electronic Portfolio - EDD Project</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="technical-paper" class="page"><div class="card"><h3>Technical Paper - EDD Project</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="microcontrollers-pdf" class="page"><div class="card"><h3>Introduction to Microcontrollers</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="microprocessor-ppt" class="page"><div class="card"><h3>Microcontroller PPT</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="diode-build" class="page"><div class="card"><h3>DIODE Hardware Simulation</h3><p class="placeholder">Add content here.</p></div></div>
 
-    <section id="b1-previous-solution-attempts"><div class="card"><h3>B1 Previous Solution Attempts</h3><p class="placeholder">Add content here.</p></div></section>
+    <div id="element-h" class="page"><div class="card"><h3>Element H Prototype Testing and Data Collection Plan</h3><p class="placeholder">This is the main Element H page.</p></div></div>
+    <div id="test-criteria" class="page"><div class="card"><h3>1.0 Test Criteria & 1.2 Test Procedure</h3><p class="placeholder">Add content here.</p></div></div>
 
-    <section id="design-specifications"><div class="card"><h3>C.1 Design Specifications</h3><p class="placeholder">Add content here.</p></div></section>
+    <div id="element-i" class="page"><div class="card"><h3>Element I Testing, Data Collection, and Analysis</h3><p class="placeholder">This is the main Element I page.</p></div></div>
+    <div id="evaluate-prototype" class="page"><div class="card"><h3>I1.0 Test and Evaluate the Prototype</h3><p class="placeholder">Add content here.</p></div></div>
 
-    <section id="project-proposal"><div class="card"><h3>C.2 Project Proposal</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="edd-presentations"><div class="card"><h3>EDD presentations Jan 06, 2025</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="field-trip-form"><div class="card"><h3>Mid Year Presentation - Field Trip Permission Form</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="brainstorming-solutions"><div class="card"><h3>1.0 Brainstorming Possible Solutions</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="concept-development"><div class="card"><h3>D.1 Concept Development</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="concept-analysis"><div class="card"><h3>D.2 Concept Analysis</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="solution-selection"><div class="card"><h3>D.3 Solution Selection</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="design-documentation"><div class="card"><h3>D.4 Design Documentation</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="peer-review"><div class="card"><h3>Classwork - Jan 7th Peer Review</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="stem-principles"><div class="card"><h3>Element E – Application of STEM Principles</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="stem-career-investigation"><div class="card"><h3>E.1 STEM Career Investigation</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="design-viability"><div class="card"><h3>F.1 Design Viability</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="preliminary-design-review"><div class="card"><h3>F.2 Preliminary Design Review</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="prototype-materials"><div class="card"><h3>G.1 Prototype Materials Planning</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="stores-to-buy"><div class="card"><h3>STORES TO BUY WITH PURCHASE ORDERS</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="material-request"><div class="card"><h3>2025-26 EDD Material Request</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="incremental-testing"><div class="card"><h3>G.2 Incremental Testing Planning</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="build-prototype"><div class="card"><h3>G.3 Build the Prototype</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="electronic-portfolio"><div class="card"><h3>Electronic Portfolio - EDD Project</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="technical-paper"><div class="card"><h3>Technical Paper - EDD Project</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="microcontrollers-pdf"><div class="card"><h3>Introduction to Microcontrollers</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="microprocessor-ppt"><div class="card"><h3>Microcontroller PPT</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="diode-build"><div class="card"><h3>DIODE Hardware Simulation</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="test-criteria"><div class="card"><h3>1.0 Test Criteria & 1.2 Test Procedure</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <section id="evaluate-prototype"><div class="card"><h3>I1.0 Test and Evaluate the Prototype</h3><p class="placeholder">Add content here.</p></div></section>
-
-    <footer>
-      PLTW EDD Digital Portfolio
-    </footer>
+    <div id="element-j" class="page"><div class="card"><h3>Element J</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="element-k" class="page"><div class="card"><h3>Element K</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="element-l" class="page"><div class="card"><h3>Element L</h3><p class="placeholder">Add content here.</p></div></div>
+    <div id="element-m" class="page"><div class="card"><h3>Element M</h3><p class="placeholder">Add content here.</p></div></div>
 
   </div>
+
+  <script>
+    function showPage(pageId) {
+      var pages = document.querySelectorAll(".page");
+
+      for (var i = 0; i < pages.length; i++) {
+        pages[i].classList.remove("active");
+      }
+
+      var selectedPage = document.getElementById(pageId);
+      selectedPage.classList.add("active");
+      selectedPage.scrollTop = 0;
+    }
+  </script>
 
 </body>
 </html>
