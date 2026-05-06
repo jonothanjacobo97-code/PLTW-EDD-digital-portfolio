@@ -17,6 +17,50 @@
       color: white;
     }
 
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 230px;
+      height: 100vh;
+      background: rgba(8, 8, 22, 0.97);
+      border-right: 1px solid rgba(180, 100, 255, 0.6);
+      box-shadow: 0 0 25px rgba(160, 80, 255, 0.35);
+      padding: 25px 15px;
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+
+    .sidebar h2 {
+      color: #d6b3ff;
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 25px;
+      text-shadow: 0 0 12px #9b4dff;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #ddddef;
+      text-decoration: none;
+      padding: 11px 15px;
+      margin: 7px 0;
+      border: 1px solid rgba(180, 100, 255, 0.25);
+      border-radius: 10px;
+      transition: 0.25s;
+    }
+
+    .sidebar a:hover {
+      color: white;
+      background: rgba(180, 100, 255, 0.18);
+      box-shadow: 0 0 14px rgba(180, 100, 255, 0.65);
+      transform: translateX(4px);
+    }
+
+    .main-content {
+      margin-left: 230px;
+    }
+
     header {
       min-height: 100vh;
       display: flex;
@@ -49,27 +93,6 @@
       color: #cfcfe8;
     }
 
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(10, 10, 25, 0.95);
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid rgba(180, 100, 255, 0.5);
-      z-index: 100;
-    }
-
-    select {
-      background: #111122;
-      color: white;
-      border: 1px solid #b56cff;
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-size: 16px;
-      box-shadow: 0 0 12px rgba(180, 100, 255, 0.5);
-      cursor: pointer;
-    }
-
     section {
       min-height: 80vh;
       padding: 80px 12%;
@@ -84,7 +107,7 @@
       box-shadow: 0 0 22px rgba(150, 70, 255, 0.25);
     }
 
-    h2 {
+    h3 {
       color: #d7b7ff;
       font-size: 34px;
       text-shadow: 0 0 10px rgba(180, 100, 255, 0.8);
@@ -118,148 +141,171 @@
     .top-link:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 800px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .hero-box {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <header id="home">
-    <div class="hero-box">
-      <h1>PLTW EDD Digital Portfolio</h1>
-      <p class="subtitle">Engineering Design and Development Portfolio</p>
-      <p>
-        Welcome to my PLTW EDD portfolio. Use the dropdown menu below to view
-        each portfolio element from A through M.
-      </p>
-    </div>
-  </header>
+  <div class="sidebar">
+    <h2>PLTW EDD</h2>
+    <a href="#home">Home</a>
+    <a href="#element-a">Element A</a>
+    <a href="#element-b">Element B</a>
+    <a href="#element-c">Element C</a>
+    <a href="#element-d">Element D</a>
+    <a href="#element-e">Element E</a>
+    <a href="#element-f">Element F</a>
+    <a href="#element-g">Element G</a>
+    <a href="#element-h">Element H</a>
+    <a href="#element-i">Element I</a>
+    <a href="#element-j">Element J</a>
+    <a href="#element-k">Element K</a>
+    <a href="#element-l">Element L</a>
+    <a href="#element-m">Element M</a>
+  </div>
 
-  <nav>
-    <select onchange="location = this.value;">
-      <option value="#home">Go to portfolio section</option>
-      <option value="#element-a">Element A</option>
-      <option value="#element-b">Element B</option>
-      <option value="#element-c">Element C</option>
-      <option value="#element-d">Element D</option>
-      <option value="#element-e">Element E</option>
-      <option value="#element-f">Element F</option>
-      <option value="#element-g">Element G</option>
-      <option value="#element-h">Element H</option>
-      <option value="#element-i">Element I</option>
-      <option value="#element-j">Element J</option>
-      <option value="#element-k">Element K</option>
-      <option value="#element-l">Element L</option>
-      <option value="#element-m">Element M</option>
-    </select>
-  </nav>
+  <div class="main-content">
 
-  <section id="element-a">
-    <div class="card">
-      <h2>Element A</h2>
-      <p class="placeholder">Add your Element A content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <header id="home">
+      <div class="hero-box">
+        <h1>PLTW EDD Digital Portfolio</h1>
+        <p class="subtitle">Engineering Design and Development Portfolio</p>
+        <p>
+          Welcome to my PLTW EDD portfolio. Use the sidebar to view
+          each portfolio element from A through M.
+        </p>
+      </div>
+    </header>
 
-  <section id="element-b">
-    <div class="card">
-      <h2>Element B</h2>
-      <p class="placeholder">Add your Element B content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-a">
+      <div class="card">
+        <h3>Element A</h3>
+        <p class="placeholder">Add your Element A content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <section id="element-c">
-    <div class="card">
-      <h2>Element C</h2>
-      <p class="placeholder">Add your Element C content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-b">
+      <div class="card">
+        <h3>Element B</h3>
+        <p class="placeholder">Add your Element B content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <section id="element-d">
-    <div class="card">
-      <h2>Element D</h2>
-      <p class="placeholder">Add your Element D content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-c">
+      <div class="card">
+        <h3>Element C</h3>
+        <p class="placeholder">Add your Element C content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <section id="element-e">
-    <div class="card">
-      <h2>Element E</h2>
-      <p class="placeholder">Add your Element E content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-d">
+      <div class="card">
+        <h3>Element D</h3>
+        <p class="placeholder">Add your Element D content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <section id="element-f">
-    <div class="card">
-      <h2>Element F</h2>
-      <p class="placeholder">Add your Element F content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-e">
+      <div class="card">
+        <h3>Element E</h3>
+        <p class="placeholder">Add your Element E content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <section id="element-g">
-    <div class="card">
-      <h2>Element G</h2>
-      <p class="placeholder">Add your Element G content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-f">
+      <div class="card">
+        <h3>Element F</h3>
+        <p class="placeholder">Add your Element F content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <section id="element-h">
-    <div class="card">
-      <h2>Element H</h2>
-      <p class="placeholder">Add your Element H content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-g">
+      <div class="card">
+        <h3>Element G</h3>
+        <p class="placeholder">Add your Element G content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <section id="element-i">
-    <div class="card">
-      <h2>Element I</h2>
-      <p class="placeholder">Add your Element I content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-h">
+      <div class="card">
+        <h3>Element H</h3>
+        <p class="placeholder">Add your Element H content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <section id="element-j">
-    <div class="card">
-      <h2>Element J</h2>
-      <p class="placeholder">Add your Element J content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-i">
+      <div class="card">
+        <h3>Element I</h3>
+        <p class="placeholder">Add your Element I content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <section id="element-k">
-    <div class="card">
-      <h2>Element K</h2>
-      <p class="placeholder">Add your Element K content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-j">
+      <div class="card">
+        <h3>Element J</h3>
+        <p class="placeholder">Add your Element J content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <section id="element-l">
-    <div class="card">
-      <h2>Element L</h2>
-      <p class="placeholder">Add your Element L content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-k">
+      <div class="card">
+        <h3>Element K</h3>
+        <p class="placeholder">Add your Element K content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <section id="element-m">
-    <div class="card">
-      <h2>Element M</h2>
-      <p class="placeholder">Add your Element M content here.</p>
-      <a class="top-link" href="#home">Back to top</a>
-    </div>
-  </section>
+    <section id="element-l">
+      <div class="card">
+        <h3>Element L</h3>
+        <p class="placeholder">Add your Element L content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
 
-  <footer>
-    PLTW EDD Digital Portfolio
-  </footer>
+    <section id="element-m">
+      <div class="card">
+        <h3>Element M</h3>
+        <p class="placeholder">Add your Element M content here.</p>
+        <a class="top-link" href="#home">Back to top</a>
+      </div>
+    </section>
+
+    <footer>
+      PLTW EDD Digital Portfolio
+    </footer>
+
+  </div>
 
 </body>
 </html>
