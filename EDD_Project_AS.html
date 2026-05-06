@@ -89,8 +89,8 @@
 
       border-radius: 25px;
       padding: 50px;
-      max-width: 900px;
-      margin: 80px auto;
+      max-width: 950px;
+      margin: 40px auto 45px auto;
       text-align: center;
     }
 
@@ -104,9 +104,10 @@
     }
 
     h1 {
-      font-size: 54px;
+      font-size: 48px;
       color: #d6b3ff;
       text-shadow: 0 0 18px #9b4dff;
+      margin-bottom: 15px;
     }
 
     h2 {
@@ -127,9 +128,65 @@
       font-size: 18px;
     }
 
+    .assignment-name {
+      font-size: 22px;
+      color: #ffffff;
+      margin-top: 18px;
+      font-weight: bold;
+    }
+
+    .team-name {
+      font-size: 24px;
+      color: #d6b3ff;
+      font-weight: bold;
+      text-shadow: 0 0 12px rgba(180,100,255,0.9);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .team-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(180,100,255,0.45);
+      border-radius: 18px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 0 18px rgba(150,70,255,0.25);
+    }
+
+    .photo-placeholder {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      border: 2px dashed rgba(214,179,255,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #b9a6d9;
+      font-size: 14px;
+      box-shadow: 0 0 18px rgba(180,100,255,0.35);
+    }
+
+    .email {
+      font-size: 14px;
+      color: #cfcfe8;
+      word-break: break-word;
+    }
+
     .placeholder {
       color: #b9a6d9;
       font-style: italic;
+    }
+
+    @media (max-width: 1000px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
   </style>
@@ -189,10 +246,65 @@
 
         <h1>PLTW EDD Digital Portfolio</h1>
 
-        <p>
-          Welcome to my Engineering Design and Development Portfolio.
-          Use the sidebar to open each element as its own separate scrollable page.
+        <p class="assignment-name">
+          Project Lead The Way Capstone Project Portfolio 2025-2026
         </p>
+
+        <p class="team-name">
+          Team Name: Countertop Conundrum
+        </p>
+
+        <p>
+          This portfolio documents the engineering design process, research,
+          prototype development, testing, and final design work completed for the
+          Project Lead The Way Engineering Design and Development capstone project.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h2>Meet the Team</h2>
+
+        <div class="team-grid">
+
+          <div class="team-card">
+            <div class="photo-placeholder">
+              Picture Placeholder
+            </div>
+
+            <h3>Arjun Sarsam</h3>
+
+            <p class="email">
+              Email: asarsam@students.monroe.k12.nj.us
+            </p>
+          </div>
+
+          <div class="team-card">
+            <div class="photo-placeholder">
+              Picture Placeholder
+            </div>
+
+            <h3>Gokul Krishnaswamy</h3>
+
+            <p class="email">
+              Email: gkrishna@students.monroe.k12.nj.us
+            </p>
+          </div>
+
+          <div class="team-card">
+            <div class="photo-placeholder">
+              Picture Placeholder
+            </div>
+
+            <h3>Jeremiah Patten</h3>
+
+            <p class="email">
+              Email: jpatten@students.monroe.k12.nj.us
+            </p>
+          </div>
+
+        </div>
 
       </div>
 
