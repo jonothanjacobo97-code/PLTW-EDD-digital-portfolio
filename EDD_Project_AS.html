@@ -6,7 +6,6 @@
   <title>PLTW EDD Digital Portfolio</title>
 
   <style>
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -188,24 +187,29 @@
       margin: 0 auto 20px auto;
       border: 3px solid rgba(214,179,255,0.9);
       box-shadow: 0 0 22px rgba(180,100,255,0.45);
+      background: #222;
     }
 
     .team-headshot {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .arjun-headshot {
-      object-position: center 12%;
+      transform: scale(1.45);
+      object-position: center 20%;
     }
 
     .gokul-headshot {
+      transform: scale(1.15);
       object-position: center 18%;
     }
 
     .jeremiah-headshot {
-      object-position: center 12%;
+      transform: scale(1.45);
+      object-position: center 16%;
     }
 
     .email {
@@ -277,11 +281,38 @@
     }
 
     @media (max-width: 1000px) {
+      body {
+        overflow: auto;
+      }
+
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+
+      .main-content {
+        margin-left: 0;
+        height: auto;
+      }
+
+      .page {
+        height: auto;
+        min-height: 100vh;
+      }
+
       .team-grid {
         grid-template-columns: 1fr;
       }
-    }
 
+      h1 {
+        font-size: 38px;
+      }
+
+      .team-name {
+        font-size: 36px;
+      }
+    }
   </style>
 </head>
 
@@ -612,9 +643,7 @@
   </div>
 
   <script>
-
     function showPage(pageId) {
-
       var pages = document.querySelectorAll(".page");
 
       for (var i = 0; i < pages.length; i++) {
@@ -622,7 +651,6 @@
       }
 
       document.getElementById(pageId).classList.add("active");
-
     }
 
     var brochureSlides = [
@@ -633,18 +661,15 @@
     var currentBrochureSlide = 0;
 
     function updateBrochureSlide() {
-
       document.getElementById("brochureFrame").src =
         brochureSlides[currentBrochureSlide];
 
       document.getElementById("brochureLabel").textContent =
         "Page " + (currentBrochureSlide + 1) +
         " of " + brochureSlides.length;
-
     }
 
     function nextBrochureSlide() {
-
       currentBrochureSlide++;
 
       if (currentBrochureSlide >= brochureSlides.length) {
@@ -652,11 +677,9 @@
       }
 
       updateBrochureSlide();
-
     }
 
     function previousBrochureSlide() {
-
       currentBrochureSlide--;
 
       if (currentBrochureSlide < 0) {
@@ -664,9 +687,7 @@
       }
 
       updateBrochureSlide();
-
     }
-
   </script>
 
 </body>
