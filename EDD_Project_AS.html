@@ -181,8 +181,8 @@
     }
 
     .photo-placeholder {
-      width: 150px;
-      height: 150px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       margin: 0 auto 20px auto;
       border: 2px dashed rgba(214,179,255,0.8);
@@ -190,25 +190,32 @@
       justify-content: center;
       align-items: center;
       color: #b9a6d9;
-      font-size: 14px;
+      font-size: 16px;
       box-shadow: 0 0 18px rgba(180,100,255,0.35);
     }
 
     .headshot-container {
-      width: 150px;
-      height: 150px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       overflow: hidden;
       margin: 0 auto 20px auto;
-      border: 2px solid rgba(214,179,255,0.8);
-      box-shadow: 0 0 18px rgba(180,100,255,0.35);
+      border: 3px solid rgba(214,179,255,0.9);
+      box-shadow: 0 0 22px rgba(180,100,255,0.45);
     }
 
     .team-headshot {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+    }
+
+    .gokul-headshot {
+      object-position: center 18%;
+    }
+
+    .jeremiah-headshot {
+      object-position: center 12%;
     }
 
     .email {
@@ -279,6 +286,12 @@
       font-size: 18px;
     }
 
+    @media (max-width: 1000px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -290,6 +303,14 @@
 
     <button onclick="showPage('home')">Home</button>
     <button onclick="showPage('element-a')">Element A</button>
+    <button onclick="showPage('element-b')">Element B</button>
+    <button onclick="showPage('element-c')">Element C</button>
+    <button onclick="showPage('element-d')">Element D</button>
+    <button onclick="showPage('element-e')">Element E</button>
+    <button onclick="showPage('element-f')">Element F</button>
+    <button onclick="showPage('element-g')">Element G</button>
+    <button onclick="showPage('element-h')">Element H</button>
+    <button onclick="showPage('element-i')">Element I</button>
 
   </div>
 
@@ -333,8 +354,14 @@
 
           <div class="team-card">
 
-            <div class="photo-placeholder">
-              Picture Placeholder
+            <div class="headshot-container">
+
+              <img
+                src="./GK_photo.jpg"
+                alt="Gokul Krishnaswamy"
+                class="team-headshot gokul-headshot"
+              >
+
             </div>
 
             <h3>Gokul Krishnaswamy</h3>
@@ -352,7 +379,7 @@
               <img
                 src="./JP_photo.jpg"
                 alt="Jeremiah Patten"
-                class="team-headshot"
+                class="team-headshot jeremiah-headshot"
               >
 
             </div>
@@ -419,6 +446,169 @@
           Page 1 of 2
         </div>
 
+      </div>
+
+      <div class="card">
+        <h3>A.5 Academic Research</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>A.6 Marketplace Research</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>Survey Examples - From previous year's EDD classes & my summer EDD project</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>Conducting Market Research Project</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+    </div>
+
+    <div id="element-b" class="page">
+
+      <h2>Element B - Documentation and Analysis of Prior Solution Attempts</h2>
+
+      <div class="card">
+        <h3>B1 Previous Solution Attempts</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+    </div>
+
+    <div id="element-c" class="page">
+
+      <h2>Element C - Presentation and Justification of Solution Requirements</h2>
+
+      <div class="card">
+        <h3>C.1 Design Specifications</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>C.2 Project Proposal</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>EDD presentations Jan 06, 2025</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>Mid Year Presentation - Field Trip Permission Form</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+    </div>
+
+    <div id="element-d" class="page">
+
+      <h2>Element D - Design Concepts Generation, Analysis, and Selection</h2>
+
+      <div class="card">
+        <h3>1.0 Brainstorming Possible Solutions</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>D.1 Concept Development</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>D.2 Concept Analysis</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>D.3 Solution Selection</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>D.4 Design Documentation</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+    </div>
+
+    <div id="element-e" class="page">
+
+      <h2>Element E - Application of STEM Principles and Practices</h2>
+
+      <div class="card">
+        <h3>Application of STEM Principles and Practices</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>E1. STEM Career Investigation</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+    </div>
+
+    <div id="element-f" class="page">
+
+      <h2>Element F - Consideration of Design Viability</h2>
+
+      <div class="card">
+        <h3>F.1 Design Viability</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>F.2 Preliminary Design Review</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+    </div>
+
+    <div id="element-g" class="page">
+
+      <h2>Element G - Construction of a Testable Prototype</h2>
+
+      <div class="card">
+        <h3>G.1 Prototype Materials Planning</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>G.2 Incremental Testing Planning</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+      <div class="card">
+        <h3>G.3 Build the Prototype</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+    </div>
+
+    <div id="element-h" class="page">
+
+      <h2>Element H - Prototype Testing and Data Collection Plan</h2>
+
+      <div class="card">
+        <h3>1.0 Test Criteria & 1.2 Test Procedure</h3>
+        <p class="placeholder">Add content here.</p>
+      </div>
+
+    </div>
+
+    <div id="element-i" class="page">
+
+      <h2>Element I - Testing, Data Collection, and Analysis</h2>
+
+      <div class="card">
+        <h3>I1.0 Test and Evaluate the Prototype</h3>
+        <p class="placeholder">Add content here.</p>
       </div>
 
     </div>
